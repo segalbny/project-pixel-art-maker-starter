@@ -7,7 +7,7 @@ $('#sizePicker').submit(function (event) {
    height = $('#inputHeight').val();
    width =  $('#inputWidth').val();
    makeGrid(height, width)
-   console.log('Height: ' + height+ 'add width: ' + width);
+   console.log(`Height: ${height}add width: ${width}`);
 
 })
 
@@ -16,18 +16,18 @@ function makeGrid(n,m) {
 
 // Your code goes here!
    for (var d = 1; d <= n; d++) {
-       $('#pixelCanvas').append('<tr id=table'+ d + '</tr>')
+       $('#pixelCanvas').append('<tr id="table' + d + '"></tr>')
    for (var e = 1; e <=m; e++) { 
-        $('#table' + d).append('<td>/td>');
+        $('#table'+ d).append('<td></td>')
    }
 }
 $('td').click(function addColor() {
   color = $('#colorPicker').val();
   
-  if  (this.attr('style')){
-      this.removeAttr('style')
+  if  ($(this).attr('style')){
+      $(this).removeAttr('style')
     } else {
-      this.attr('style', 'background-color;' + color)
+      $(this).attr('style', 'background-color:'+ color)
     }
   })
 }
