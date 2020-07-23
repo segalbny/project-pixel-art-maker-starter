@@ -1,37 +1,34 @@
-var colorPicker = document.getElementById ('colorPicker');
-var setColor =colorPicker.value;
-var sizePicker = document.getElementById ('sizePicker');
+// Select color input
+// Select size input
+// When size is submitted by the user, call makeGrid()
 
-colorPicker.addEventListener('change', function () {
-    setColor = document.getElementById ('colorPicker').value;
-});
+var colorPicker = document.getElementById ('colorPicker').value;
+var sizePicker = document.getElementById ('sizePicker').value;
 
-sizePicker.addEventListener('submit', function () {
+sizePicker.addEventListener("submit", function(event){
+    event.preventDefault();
+   
+function addColor(event) {
+    var color = document.getElementById ('colorPicker').value;
+        event.target.style.backgroundColor = color;
+        event.preventDefault();
+      };
+      grid.addEventListener("click", addColor);
+      grid.innerHTML ="" ;
+
+function submitButton() {
     event.preventDefault()
     var height = document.getElementById ('inputWidth').value
     var width = document.getElementById ('inputHeight').value
+    var table = document.getElementById("pixelCanvas") 
     makeGrid(height, width)
-});
-function makeGrid(height, width) {
-    var table = document.getElementById('pixelCanvas')
-    table.innerHTML = '';
-    
-    for (var m = 0; m < height; m++) {
-        var row = document.createElement('tr');  
-        
-        for (var n = 0; n < width; n++) {
-            var cell = document.createElement ('td');
-            row.appendChild (cell); 
 
-            cell.addEventListener('click', function ()  {
-               if (this.style.backgroundColor) {
-                this.style.backgroundColor = ''
-               }  else  { 
-                              
-                this.style.backgroundColor = setColor; 
-                }
-        });
-    }
-            table.appendChild(row);
-    }
-}
+function makeGrid(height, width) {
+    for (let m = 0; m < height;r++) {
+        let row = document.createElement ("tr");  }  
+        for (let n = 0; n < width; w++) {
+            var cell = document.createElement ("td");
+            insertRow.appendChild (Cell); 
+            cell.addEventListener('click', function (colorclick)  {
+                cell.style.backgroundColor = color.value;
+        } 
